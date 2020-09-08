@@ -1,0 +1,86 @@
+swagger: "2.0"
+info:
+  title: User API
+  description: Used for CRUD user functionalities.
+  version: 1.0.0
+host: api.ipredictworld.com
+schemes:
+  - https
+paths:
+  /users:
+    get:
+      summary: Returns a list of users.
+      description: Returns a list of users with option to limit total numbers,
+        arrange according to an attribute and use pagination.
+      parameters:
+        - in: query
+          name: size
+          description: Total Number of Users to be sent
+          type: integer
+          default: 25
+          required: false
+        - in: query
+          name: direction
+          type: string
+          description: To arrange in ascending order(ASC) or descending order (DESC)
+          default: ASC
+          required: false
+        - in: query
+          name: attribute
+          type: string
+          description: To arrange using a feature of the object user
+          default: name
+
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+    post:
+      summary: Create a new user.
+      description: Creates a new user with a default User Role
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        201:
+          description: Created
+  /users/{userId}:
+    put:
+      summary: Edit Already existing user with User Id
+      description: Used to edit existing user by passing attributes to be changed
+      parameters:
+        - in: path
+          name: userId
+          description: The ID that is used to identify the user in the platform
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+    get:
+      summary: Get Specific User With User Id
+      parameters:
+        - in: path
+          name: userId
+          description: The ID that is used to identify the user in the platform
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+    delete:
+      summary: Delete User with User Id
+      parameters:
+        - in: path
+          name: userId
+          description: The ID that is used to identify the user in the platform
+      produces:
+         - application/json
+      responses:
+         200:
+          description: OK
+
