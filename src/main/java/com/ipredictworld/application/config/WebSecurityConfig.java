@@ -58,7 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
+        http.cors().disable().csrf().disable()
                 .authorizeRequests()
         .antMatchers("/",
                 "/favicon.ico",
