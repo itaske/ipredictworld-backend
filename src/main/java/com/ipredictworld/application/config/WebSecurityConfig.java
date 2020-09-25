@@ -58,7 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.cors().disable().csrf().disable()
+        http.cors().and().csrf().disable()
                 .authorizeRequests()
         .antMatchers("/",
                 "/favicon.ico",
@@ -91,8 +91,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling()//default response if the client wants to get a resources unauthorized
                 .authenticationEntryPoint(new Http403ForbiddenEntryPoint())
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        //this disables session creation on Spring Security
-        //.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
     }
 
 
