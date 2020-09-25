@@ -2,7 +2,6 @@ package com.ipredictworld.application.entities;
 
 
 import com.fasterxml.jackson.annotation.*;
-import javafx.beans.property.ObjectProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.GenericGenerator;
