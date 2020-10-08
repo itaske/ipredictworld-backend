@@ -1,3 +1,4 @@
+
 plugins {
 	id 'org.springframework.boot' version '2.3.3.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
@@ -8,6 +9,7 @@ plugins {
 group = 'com.ipredictworld'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
+
 
 configurations {
 	compileOnly {
@@ -22,6 +24,7 @@ repositories {
 ext {
 	set('snippetsDir', file("build/generated-snippets"))
 }
+
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
@@ -52,6 +55,7 @@ dependencies {
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 	testImplementation 'org.springframework.security:spring-security-test'
 }
+
 
 test {
 	outputs.dir snippetsDir

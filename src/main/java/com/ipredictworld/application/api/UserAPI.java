@@ -39,7 +39,6 @@ public class UserAPI {
         this.userController = userController;
     }
 
-    @RolesAllowed("ROLE_USER")
     @GetMapping
     @Transactional
     public ResponseEntity<?> getAll(@RequestParam(name="size", required = false, defaultValue = "25") int size,

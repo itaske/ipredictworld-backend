@@ -18,19 +18,24 @@ import java.util.List;
 
 @Entity
 @Data
-@EqualsAndHashCode(exclude = {"roles", "weekPredictions"})
+@EqualsAndHashCode(exclude = {"weekPredictions"})
 @Table(name="ipredict_user")
 public class User implements Serializable {
 
     public enum Gender{
         MALE,
         FEMALE
-    };
+    }
 
     public enum AccountState{
         NEW,
         ACTIVE,
         INACTIVE
+    }
+
+    public enum Role{
+       ROLE_USER,
+       ROLE_ADMIN
     }
 
 
@@ -78,10 +83,7 @@ public class User implements Serializable {
         country="Nigeria";
     }
 
-    @ManyToMany
-    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name="user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name="role_id", referencedColumnName = "id"))
-    private List<Role> roles = new ArrayList<>();
+   private Role role;
 
 
 

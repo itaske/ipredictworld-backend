@@ -68,7 +68,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/**/*.jpg",
                 "/**/*.html",
                 "/**/*.css",
-                "/**/*.js")
+                "/**/*.js", "/login","/register","/about","/home","/dashboard", "/dashboard/*")
                 .permitAll()
                 .antMatchers(HttpMethod.PUT, SecurityConstants.GET_USERS+"/*")
                 .permitAll()
@@ -127,7 +127,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    public void configureGlobal(AuthenticationManagerBuilder auth){
         auth.authenticationProvider(authProvider());
     }
 }

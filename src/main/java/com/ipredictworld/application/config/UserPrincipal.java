@@ -3,6 +3,7 @@ package com.ipredictworld.application.config;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ipredictworld.application.entities.User;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -48,9 +49,8 @@ public class UserPrincipal implements UserDetails {
         this.enabled = true;
         this.credentialsNonExpired = true;
 
-        System.out.println("User Roles "+user.getRoles());
-        List<GrantedAuthority> authorities = user.getRoles().stream().map(role->role.getName()).map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());
+        System.out.println("User Roles "+user.getRole());
+        List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(user.getRole().toString());
 
         this.authorities = authorities;
         System.out.println("User authorities "+authorities);
