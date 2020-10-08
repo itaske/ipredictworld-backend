@@ -83,6 +83,7 @@ public class User implements Serializable {
         country="Nigeria";
     }
 
+   @Enumerated(EnumType.STRING)
    private Role role;
 
 
