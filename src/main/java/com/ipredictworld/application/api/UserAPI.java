@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.CrossOrigin
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
